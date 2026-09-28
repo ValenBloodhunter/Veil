@@ -44,6 +44,8 @@ paths:
                 description: integer values indicating spam or ham (where spam = 1 and ham = 1)
                 items: integer
                 example: 1
+              required:
+                - predictions
         400:
           description: "prediction failed"
           schema:

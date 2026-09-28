@@ -180,6 +180,23 @@ Possible improvements include:
 - Comparing Logistic Regression and Linear SVM
 - Deploying the trained model through a simple web interface
 
+## Local Deployment
+
+The SMS spam detection API is currently deployed and running locally using Flask and Connexion.
+
+The API is served on localhost and accepts SMS messages through the `/api/predict` endpoint, returning a prediction for each message:
+
+- `0` → Ham
+- `1` → Spam
+
+Example local endpoint:
+
+```text
+http://localhost:5000/api/predict
+```
+
+The API specification is defined using Swagger/OpenAPI and can be tested locally before moving to a public deployment platform.
+
 ## Disclaimer
 
 This project is intended as an educational machine learning project. Real-world spam filtering systems use additional information such as sender reputation, URLs, metadata, and other security signals alongside text classification.

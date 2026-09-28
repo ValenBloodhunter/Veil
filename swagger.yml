@@ -1,0 +1,54 @@
+swagger: "2.0"
+info:
+  description: The swagger file for the API
+  version: "1.0.0"
+  title: The API
+consumes: 
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: /api
+
+definitions:
+  PredictRequestBody:
+    type: array
+    items:
+      type: string
+      description: SMS to classify
+      example: "sample message here"
+
+paths:
+  /predict:
+    post:
+      operationID: "spam_classifier.predict"
+      tags:
+        - "spam_classifier"
+      summary: "SMS messages Spam Classifier Prediction Endpoint"
+      description: "Generate spam/ham predictions based on input SMS"
+      parameters:
+        - in: body
+          name: body
+          description: "Required array of string messages in request payload"
+          required: true
+          schema:
+            $ref: "#/definitions/PredictRequestBody"
+      reponses:
+        200:
+          description: "success"
+          schema:
+            type: object
+            properties:
+              predictions:
+                type: array
+                description: integer values indicating spam or ham (where spam = 1 and ham = 1)
+                items: integer
+                example: 1
+        400:
+          description: "prediction failed"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "prediction failed"

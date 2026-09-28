@@ -21,7 +21,7 @@ definitions:
 paths:
   /predict:
     post:
-      operationID: "spam_classifier.predict"
+      operationId: "spam_classifier.predict"
       tags:
         - "spam_classifier"
       summary: "SMS messages Spam Classifier Prediction Endpoint"
@@ -33,7 +33,7 @@ paths:
           required: true
           schema:
             $ref: "#/definitions/PredictRequestBody"
-      reponses:
+      responses:
         200:
           description: "success"
           schema:
@@ -42,7 +42,8 @@ paths:
               predictions:
                 type: array
                 description: integer values indicating spam or ham (where spam = 1 and ham = 1)
-                items: integer
+                items: 
+                  type: integer
                 example: 1
             required:
               - predictions

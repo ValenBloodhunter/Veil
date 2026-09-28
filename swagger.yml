@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: The swagger file for the API
   version: "1.0.0"
-  title: SPAM SMS detection
+  title: VEIL
 consumes: 
   - "application/json"
 produces:
